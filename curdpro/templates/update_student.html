@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdn.html' %}
+
+</head>
+<style media="screen">
+    input[name]{
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h3 class="text-center">Please Enter Student Data Here</h3>
+
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <form method="POST" class="shadow-lg">
+                {% csrf_token %}
+                
+                <input type="text" name="fname" class="form-control" placeholder="Enter First Name" value="{{ student.fist_name }}">
+
+                
+                <input type="text" name="lname" class="form-control" placeholder="Last name" value="{{ student.last_name }}">
+                
+               
+                <input type="text" name="course" class="form-control" placeholder="Enter course name" value="{{student.course}}">
+                
+            
+                <input type="number" name="fee" class="form-control" placeholder="Enter Fee" value="{{ student.fee}}">
+
+                
+                <input type="number" name="a1" class="form-control" placeholder=" Enter Assigmment1 Marks" value="{{ student.assigment1 }}">
+
+                
+                <input type="number" name="a2" class="form-control" placeholder="Enter Assigmment2 Marks" value="{{ student.assigment2 }}">
+                
+                <input type="number" name="a3" class="form-control" placeholder="Enter Assigmment3 Marks"value="{{ student.assigment3 }}">
+                
+                <!-- <label> Enter Assigmment4 Marks</label> -->
+                <input type="number" name="a4" class="form-control" placeholder="Enter Assigmment4 Marks"value="{{ student.assigment4 }}">
+                    
+                <!-- <label>Enter Instion Name:</label> -->
+                <input type="text" name="institute" class="form-control" placeholder="Enter Instion Name:" value="{{ student.institute }}">
+
+                <!-- <label>Enter Location Name:</label> -->
+                <input type="text" name="location" calss="form-control" placeholder="Enter Location Name:" value="{{ student.location }}">
+                <center>
+                    <button type="submit" class="btn btn-success">Update    </button>
+                    <button type="submit" class="btn btn-danger">Danger</button>
+                </center>
+
+            </form>
+        </div>
+    </div>
+    </div>
+     
+</body>
+</html>

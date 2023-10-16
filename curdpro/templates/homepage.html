@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdn.html' %}
+</head>
+<body>
+    <h1 class="text-center bg-danger"> IPCS GLOBAL - MANGALORE</h1>
+    <div class="contaner-fluid">
+        <div class="row">
+            <div class ="col-md-12">
+                <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+                <a href="{% url 'add_student' %}" class="btn btn-success">Add new Student</a><br>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                {% comment %} <thead> {% endcomment %}
+                    <tr >
+                        <th style="color:red;text-align:center;">Fist Name</th>
+                        <th style="color:red;text-align:center;">Last Name</th>
+                        <th style="color:red;text-align:center;">Course</th>
+                        <th style="color:red;text-align:center;">Fee</th>
+                        <th style="color:red;text-align:center;">Assigmment 1</th>
+                        <th style="color:red;text-align:center;">Assigmment 2</th>
+                        <th style="color:red;text-align:center;">Assigmment 3</th>
+                        <th style="color:red;text-align:center;">Assigmment 4</th>
+                        <th style="color:red;text-align:center;">Institute</th>
+                        <th style="color:red;text-align:center;">Loctions</th>
+                        <th style="color:red;text-align:center;">Action</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in students %}
+                    <tr>
+                        <td class="bg-primary" >{{i.fist_name}}</td>
+                        <td class="bg-success">{{i.last_name}}</td>
+                        <td class="bg-warning">{{i.course}}</td>
+                        <td class="bg-danger">{{i.fee}}</td>
+                        <td class="bg-info">{{i.assigment1}}</td>
+                        <td class="bg-primary">{{i.assigment2}}</td>
+                        <td class="bg-success">{{i.assigment3}}</td>
+                        <td class="bg-warning">{{i.assigment4}}</td>
+                        <td class="bg-danger">{{i.institute}}</td>
+                        <td class="bg-info">{{i.location}}</td>
+                        <td>
+                            <!-- <a href="#" class="btn btn-sm btn-outline-success">Update</a> -->
+                            <!-- <a href="#" class="btn btn-sm btn-outline-danger">Delete</a> -->
+                            <a class="btn btn-primary" href="{% url 'update_student' i.id %}" role="button">Update</a>
+                            <a class="btn btn-primary" href="{% url 'delete_student' i.id %}" role="button">Delete</a>
+                           
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                   
+
+                </tbody>
+
+                
+
+            </table>
+            </div>
+        </div>
+    </div>
+    <h1 style="color:blue;text-align:center;">   IPCS GLOBAL - MANGALORE STUDENT RECORD <h1>
+</body>
+
+</html>
